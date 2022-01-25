@@ -1,5 +1,9 @@
 import './NavBar.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+
 export const NavBar = () => {
 
     return (
@@ -9,7 +13,7 @@ export const NavBar = () => {
             <nav className="header-nav">
                 <p className="header-link">Inicio</p>
                 <p className="header-link">Catálogo</p>
-                <p className="header-link">Carrito</p>
+                <p className="header-link"><FontAwesomeIcon icon={faShoppingCart}/></p>
             </nav>
         </header>
     )
