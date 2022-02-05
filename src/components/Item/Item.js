@@ -1,4 +1,5 @@
-import { Button, Card } from "react-bootstrap"
+import { Button, Card } from "react-bootstrap";
+
 
 
 export const Item = ( {id, nombre, precio, img, desc} ) => {

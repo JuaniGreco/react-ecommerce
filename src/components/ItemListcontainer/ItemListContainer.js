@@ -1,6 +1,7 @@
 import { stock } from "../data/stock";
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
+import './ItemListContainer.css';
 
 export const ItemListContainer = ({ greeting }) => {
 
