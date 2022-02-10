@@ -46,7 +46,7 @@ export const stock = [
   },
   {
     nombre: "Auriculares Bluetooth MI",
-    id: 5,
+    id: 6,
     desc: "Duración de la batería: 2hs a volumen medio, carga total en 1h. Con carga completa, la base los carga dos veces. Conexión via bluetooth",
     precio: "6150",
     img: "https://www.alishop.com.ar/wp-content/uploads/2021/12/Auricular-Xiaomi-150x150.jpg",
