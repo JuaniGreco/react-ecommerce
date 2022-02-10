@@ -1,6 +1,7 @@
-import { stock } from "../data/stock";
 import { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
+import { pedirDatos } from "../pedirDatos";
 import './ItemListContainer.css';
 
 export const ItemListContainer = ({ greeting }) => {
@@ -8,35 +9,33 @@ export const ItemListContainer = ({ greeting }) => {
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(false)
 
-    const pedirDatos = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(stock);
-            }, 2000);
-        });
-    }
+    const { catId } = useParams ();
 
-     useEffect( () => {
+    useEffect( () => {
         setLoading(true)
 
         pedirDatos()
             .then((res) => {
-                setProductos( res )
+                if (catId) {
+                    setProductos( res.filter((el) => el.categoria === catId ) )
+                } else {
+                    setProductos(res)
+                }
             })
             .catch((err) => {
                 console.log(err)
             })
             .finally(() => {
-               setLoading(false)
+                setLoading(false)
             })
 
-    }, [])
+    }, [catId])
 
     return (
         <>
             {
                 loading 
-                    ? <h2>Loading...</h2> 
+                    ? <h2>Cargando...</h2> 
                     : <ItemList productos={productos}/>
             } 
         </>
