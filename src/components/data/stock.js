@@ -6,7 +6,7 @@ export const stock = [
     precio: "100000",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlXrXzyzVDeL0SPG3tmjB9qKTH9vh0grG1gfhh-FxVxa6rCynw-XEwFhlzU6CpxcbAwio&usqp=CAU",
     stock: 5,
-    categoria: 'Celulares'
+    categoria: 'celulares'
   },
   {
     nombre: "Cargador Samsung Turbo",
@@ -15,7 +15,7 @@ export const stock = [
     precio: "5390",
     img: "https://cdn.webshopapp.com/shops/7359/files/285082707/300x250x2/samsung-charger-usb-cable-type-c-black-fast-charge.jpg",
     stock: 9,
-    categoria: 'Accesorios'
+    categoria: 'accesorios'
   },
   {
     nombre: "Parlante JBL Flip 3",
@@ -33,7 +33,7 @@ export const stock = [
     precio: "110999",
     img: "https://moviles.info/wp-content/uploads/2020/09/Motorola-Moto-G9-Plus-150x150.png",
     stock: 7,
-    categoria: 'Celulares'
+    categoria: 'celulares'
   },
   {
     nombre: "Cargador portátil genérico",
@@ -42,7 +42,7 @@ export const stock = [
     precio: "4750",
     img: "https://ihfiles.com/products/140/39992/p/2/901642.jpeg",
     stock: 17,
-    categoria: 'Accesorios'
+    categoria: 'accesorios'
   },
   {
     nombre: "Auriculares Bluetooth MI",
