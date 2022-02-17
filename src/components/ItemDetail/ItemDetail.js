@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import { Button } from "react-bootstrap";
-import { Contador } from "../Contador/Contador";
+import { ItemCount } from "../ItemCount/ItemCount";
 
 export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) => {
 
@@ -15,12 +15,13 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
             <h5>Stock: {stock}</h5>
             <h5>Categoria: {categoria}</h5>
             <h5>Código de producto: {id}</h5>
-            <Contador />
+            <br></br>
+            <ItemCount />
             <br></br>
             <Link to = '/'>
                 <Button variant="primary">Volver</Button>
             </Link>
-
+            
         </div>
         
     )
