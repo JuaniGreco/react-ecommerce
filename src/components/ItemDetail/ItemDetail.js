@@ -16,7 +16,7 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
             <h5>Categoria: {categoria}</h5>
             <h5>Código de producto: {id}</h5>
             <br></br>
-            <ItemCount />
+            <ItemCount max={stock}/>
             <br></br>
             <Link to = '/'>
                 <Button variant="primary">Volver</Button>
