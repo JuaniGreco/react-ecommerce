@@ -1,8 +1,6 @@
 import './NavBar.css';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import {Link} from 'react-router-dom';
+import { CartWidget } from '../CartWidget/CartWidget';
 
 export const NavBar = () => {
     const img = require('../../img/logo.png');
@@ -20,6 +18,7 @@ export const NavBar = () => {
                 <Link to='/productos/celulares' className='header-link'>Celulares</Link>
                 <Link to='/productos/accesorios' className='header-link'>Accesorios</Link>
                 <Link to='/productos/bluetooth' className='header-link'>Bluetooth varios</Link>
+                <CartWidget />
                 {/*<Link to='/carrito' className='header-link'><FontAwesomeIcon icon={faShoppingCart}/></Link>*/}
             </nav>
         </header>
