@@ -11,6 +11,8 @@ export const ItemCount = ({max, min = 0, counter, setCounter}) => {
         counter > min && setCounter( counter - 1)
     }
 
+    
+
     return (
         <div>
             <button className="btn btn-outline-primary" onClick={handleRestar}>-</button>
