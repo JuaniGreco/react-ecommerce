@@ -42,13 +42,7 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                 <ItemCount max={stock} counter={cantidad} setCounter={setCantidad} />
                 <br></br>
                 
-                <button 
-                    type="button" 
-                    className="btn btn-success"
-                    onClick= {handleAgregar}
-                >
-                    Agregar al Carrito
-                </button>
+                
                 </>
             }
             <br></br>
