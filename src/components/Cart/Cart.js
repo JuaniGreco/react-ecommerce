@@ -15,18 +15,19 @@ export const Cart = () => {
                 <div key={item.id} className="row">
                     <h5>{item.nombre}</h5>
                     <p>Cantidad: {item.cantidad}</p>
-                    <p>Precio unitario: {item.precio}</p>
-                    <p>Precio total: {item.precio * item.cantidad}</p>
-                    <button classname="btn btn-danger" onclick={() => eliminarItem(item.id)}>
+                    <p>Precio unitario: ${item.precio}</p>
+                    <p>Precio total: ${item.precio * item.cantidad}</p>
+                    <p><button classname="btn btn-danger" onClick={() => eliminarItem(item.id)}>
                         <BsFillTrashFill />
-                    </button>
+                    </button></p>
                 </div>
+                
             ))
         }
         <hr/>
         <h2>Total ${totalCart()}</h2>
         <div>
-            <button className="btn btn-danger" onclick={vaciarCart}>Vaciar el carrito</button>
+            <button className="btn btn-danger" onClick={vaciarCart}>Vaciar el carrito</button>
             <button classname="btn btn-sucess">Ir a sección pago</button>
         </div>
     </div>

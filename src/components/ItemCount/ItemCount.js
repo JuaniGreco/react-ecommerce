@@ -1,5 +1,3 @@
-
-
 export const ItemCount = ({max, min = 0, counter, setCounter, handleAgregar}) => {
 
 
@@ -10,7 +8,8 @@ export const ItemCount = ({max, min = 0, counter, setCounter, handleAgregar}) =>
     const handleRestar = () => {
         counter > min && setCounter( counter - 1)
     }
-
+    
+    
     
 
     return (
@@ -24,7 +23,7 @@ export const ItemCount = ({max, min = 0, counter, setCounter, handleAgregar}) =>
                     onClick= {handleAgregar}
                 >
                     Agregar al Carrito
-                </button>
+            </button>
         </div>
         
         

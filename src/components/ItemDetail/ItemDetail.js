@@ -10,8 +10,6 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
 
     const { cart, agregarAlCarrito, isInCart } = useContext(CartContext);
 
-    console.log(cart);
-
     const handleAgregar = () => {
         if (cantidad === 0) return
         
@@ -39,7 +37,7 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                     </Link> 
                 :
                 <>
-                <ItemCount max={stock} counter={cantidad} setCounter={setCantidad} />
+                <ItemCount max={stock} counter={cantidad} setCounter={setCantidad}/>
                 <br></br>
                 
                 
