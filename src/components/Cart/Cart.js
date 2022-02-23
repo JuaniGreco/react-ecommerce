@@ -3,6 +3,7 @@ import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 
+
 export const Cart = () => {
     const { cart, totalCart, vaciarCart, eliminarItem } = useContext(CartContext);
 
@@ -17,7 +18,7 @@ export const Cart = () => {
                     <p>Cantidad: {item.cantidad}</p>
                     <p>Precio unitario: ${item.precio}</p>
                     <p>Precio total: ${item.precio * item.cantidad}</p>
-                    <p><button classname="btn btn-danger" onClick={() => eliminarItem(item.id)}>
+                    <p><button className="btn btn-danger" onClick={() => eliminarItem(item.id)}>
                         <BsFillTrashFill />
                     </button></p>
                 </div>
@@ -28,7 +29,8 @@ export const Cart = () => {
         <h2>Total ${totalCart()}</h2>
         <div>
             <button className="btn btn-danger" onClick={vaciarCart}>Vaciar el carrito</button>
-            <button classname="btn btn-sucess">Ir a sección pago</button>
+            &nbsp;
+            <button className="btn btn-success">Ir a sección pago</button>
         </div>
     </div>
     )
