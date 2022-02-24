@@ -17,6 +17,8 @@ export const ItemCount = ({max, min = 0, counter, setCounter, handleAgregar}) =>
             <button className="btn btn-outline-primary" onClick={handleRestar}>-</button>
             <span className="mx-3">{counter}</span>
             <button className="btn btn-primary" onClick={handleSumar}>+</button>
+            &nbsp;
+            &nbsp;
             <button 
                     type="button" 
                     className="btn btn-success"

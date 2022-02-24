@@ -37,7 +37,7 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                     </Link> 
                 :
                 <>
-                <ItemCount max={stock} counter={cantidad} setCounter={setCantidad}/>
+                <ItemCount max={stock} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar}/>
                 <br></br>
                 
                 
