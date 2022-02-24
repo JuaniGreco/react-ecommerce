@@ -6,20 +6,18 @@ import { CartContext } from '../../context/CartContext';
 
 export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) => {
 
-    const [cantidad, setCantidad] = useState(0);
 
-    const { cart, agregarAlCarrito, isInCart } = useContext(CartContext);
+    const {  agregarAlCarrito, isInCart } = useContext(CartContext)
+    const [add, addItem] = useState(false)
 
-    const handleAgregar = () => {
-        if (cantidad === 0) return
-        
-        if (!isInCart(id)) {
-            const addProducto = {
-                id, nombre, precio, stock, categoria, cantidad
+    const onAdd = (count) => {
+        addItem(true)
+        const itemAdd = {
+            id, nombre, img, desc, precio, stock, count
         }
-        agregarAlCarrito(addProducto)
+        agregarAlCarrito(itemAdd)
     }
-    }
+
     return (
         <div>
             <h4>{nombre}</h4>
@@ -37,10 +35,8 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
                     </Link> 
                 :
                 <>
-                <ItemCount max={stock} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar}/>
+                <ItemCount max={stock}  min={1} onAdd={onAdd}/>
                 <br></br>
-                
-                
                 </>
             }
             <br></br>
