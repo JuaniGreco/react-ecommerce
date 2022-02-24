@@ -15,9 +15,9 @@ export const Cart = () => {
             cart.map((item) => (
                 <div key={item.id} className="row">
                     <h5>{item.nombre}</h5>
-                    <p>Cantidad: {item.cantidad}</p>
+                    <p>Cantidad: {item.count}</p>
                     <p>Precio unitario: ${item.precio}</p>
-                    <p>Precio total: ${item.precio * item.cantidad}</p>
+                    <p>Precio total: ${item.precio * item.count}</p>
                     <p><button className="btn btn-danger" onClick={() => eliminarItem(item.id)}>
                         <BsFillTrashFill />
                     </button></p>

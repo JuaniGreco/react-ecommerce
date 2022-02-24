@@ -1,5 +1,8 @@
-export const ItemCount = ({max, min = 0, counter, setCounter, handleAgregar}) => {
+import {useState} from 'react';
 
+export const ItemCount = ({max, min = 1, onAdd}) => {
+
+    const [counter, setCounter] = useState(min);
 
     const handleSumar = () => {
         counter < max && setCounter( counter + 1)
@@ -7,10 +10,7 @@ export const ItemCount = ({max, min = 0, counter, setCounter, handleAgregar}) =>
 
     const handleRestar = () => {
         counter > min && setCounter( counter - 1)
-    }
-    
-    
-    
+    } 
 
     return (
         <div>
@@ -22,7 +22,7 @@ export const ItemCount = ({max, min = 0, counter, setCounter, handleAgregar}) =>
             <button 
                     type="button" 
                     className="btn btn-success"
-                    onClick= {handleAgregar}
+                    onClick= {() => onAdd(counter)}
                 >
                     Agregar al Carrito
             </button>
