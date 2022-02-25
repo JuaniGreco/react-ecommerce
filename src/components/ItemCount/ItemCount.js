@@ -19,6 +19,8 @@ export const ItemCount = ({max, min = 1, onAdd}) => {
             <button className="btn btn-primary" onClick={handleSumar}>+</button>
             &nbsp;
             &nbsp;
+            <br></br>
+            <br></br>
             <button 
                     type="button" 
                     className="btn btn-success"

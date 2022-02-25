@@ -26,7 +26,6 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
             <h5>Precio: ${precio}</h5>
             <h5>Stock: {stock}</h5>
             <h5>Categoria: {categoria}</h5>
-            <h5>Código de producto: {id}</h5>
             <br></br>
             {
                 isInCart(id) 
