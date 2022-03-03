@@ -48,7 +48,7 @@ export const Checkout = () => {
         if(outOfStock.length === 0){
             batch.commit()
         } else {
-            alert("No hay stock suficiente para completar la compra del producto " + outOfStock.item.nombre + "el stock actual es de" + outOfStock.item.stock + "unidades")
+            alert("No hay stock suficiente para completar la compra del producto " + outOfStock.map((el) => el.nombre).join(", ") + "su stock actual es de " + outOfStock.map((el) => el.stock).join(", ") + " unidades.")
         }
     }
 
