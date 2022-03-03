@@ -8,7 +8,7 @@ export const ItemDetail = ({id, nombre, img, desc, precio, stock, categoria}) =>
 
 
     const {  agregarAlCarrito, isInCart } = useContext(CartContext)
-    const [add, addItem] = useState(false)
+    const [addItem] = useState(false)
 
     const onAdd = (count) => {
         addItem(true)

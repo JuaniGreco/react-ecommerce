@@ -2,7 +2,7 @@ export const Contenedor = ({children}) => {
 
     const styles = {
         margin: '10 auto',
-        maxWidth: '1200px'
+        maxWidth: '1800px'
     }
 
     return (
