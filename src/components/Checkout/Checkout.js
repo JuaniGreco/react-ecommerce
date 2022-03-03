@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { collection, documentId, query, Timestamp, where, writeBatch, getDocs } from "firebase/firestore"
+import { collection, documentId, query, Timestamp, where, writeBatch, getDocs, addDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
 
 
@@ -30,25 +30,32 @@ export const Checkout = () => {
         const ordersRef = collection(db, "orders")
         const productosRef = collection(db, "productos")
 
-        const q = query(productosRef, where(documentId(), "in", cart.map((el) => el.id)))
+        const q = query(productosRef, where(documentId(), 'in', cart.map((el) => el.id)))
         const productos = await getDocs(q)
+        console.log(productos)
         const outOfStock = []
 
         productos.docs.forEach((doc) => {
             const item = cart.find((el) => el.id === doc.id)
+    
             if (doc.data().stock >= item.cantidad) {
                 batch.update(doc.ref, {
                     stock: doc.data().stock - item.cantidad
                 })
-            }else{
+            } else {
                 outOfStock.push(item)
             }
         })
 
         if(outOfStock.length === 0){
-            batch.commit()
+            addDoc(ordersRef, orden)
+                .then((doc) => {
+                    batch.commit()
+                    setOrderId(doc.id)
+                    vaciarCart()
+                })
         } else {
-            alert("No hay stock suficiente para completar la compra del producto " + outOfStock.map((el) => el.nombre).join(", ") + "su stock actual es de " + outOfStock.map((el) => el.stock).join(", ") + " unidades.")
+            alert("No hay stock suficiente para completar la compra del producto " + outOfStock.map((el) => el.nombre).join(", ")+ ". Por favor, revise su carrito.")
         }
     }
 
