@@ -38,9 +38,9 @@ export const Checkout = () => {
         productos.docs.forEach((doc) => {
             const item = cart.find((el) => el.id === doc.id)
     
-            if (doc.data().stock >= item.cantidad) {
+            if (doc.data().stock >= item.count) {
                 batch.update(doc.ref, {
-                    stock: doc.data().stock - item.cantidad
+                    stock: doc.data().stock - item.count
                 })
             } else {
                 outOfStock.push(item)
