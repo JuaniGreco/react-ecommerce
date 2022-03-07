@@ -90,26 +90,4 @@ export const Checkout = () => {
             </form>
         </div>
     )
-
-    // addDoc(ordersRef, orden)
-        //     .then((resp) => {
-        //         cart.forEach((item) => {
-        //             const docRef = doc(db, "productos", item.id)
-        //             getDoc(docRef)
-        //                 .then((dbDoc) => {
-        //                     if (dbDoc.data().stock >= item.cantidad) {
-        //                         updateDoc(docRef, {stock: dbDoc.data().stock >= item.cantidad})
-        //                     } else{
-        //                         alert("No hay stock suficiente para completar la compra del producto " + item.nombre + "el stock actual es de" + dbDoc.data().stock + "unidades")
-        //                     }
-
-        //                 })
-                    
-        //         })
-        //         setOrderId(doc.id)
-        //         vaciarCart()
-        //     })
-        //     .catch((error) => {
-        //         console.log(error)
-        //     })
 }

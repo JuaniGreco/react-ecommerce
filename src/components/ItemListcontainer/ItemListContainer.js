@@ -30,21 +30,6 @@ export const ItemListContainer = ({ greeting }) => {
                 setLoading(false)
             })
 
-        // pedirDatos()
-        //     .then((res) => {
-        //         if (catId) {
-        //             setProductos( res.filter((el) => el.categoria === catId ) )
-        //         } else {
-        //             setProductos(res)
-        //         }
-        //     })
-        //     .catch((err) => {
-        //         console.log(err)
-        //     })
-        //     .finally(() => {
-        //         setLoading(false)
-        //     })
-
     }, [catId])
 
     return (

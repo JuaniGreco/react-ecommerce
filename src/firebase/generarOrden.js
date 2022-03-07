@@ -17,7 +17,6 @@ export const generarOrden = async (values, cart, totalCart, setOrderId, vaciarCa
 
     const q = query(productosRef, where(documentId(), 'in', cart.map((el) => el.id)))
     const productos = await getDocs(q)
-    console.log(productos)
     const outOfStock = []
 
     productos.docs.forEach((doc) => {
