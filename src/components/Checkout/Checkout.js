@@ -2,9 +2,8 @@ import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { collection, documentId, query, Timestamp, where, writeBatch, getDocs, addDoc } from "firebase/firestore"
-import { db } from "../../firebase/config"
-
+import { generarOrden } from "../../firebase/generarOrden"
+import { validar } from "./validar"
 
 export const Checkout = () => {
 
@@ -18,47 +17,6 @@ export const Checkout = () => {
         tel: ''
     })
 
-    const generarOrden = async () => {
-        const orden = {
-            comprador: values,
-            items: cart,
-            total: totalCart(),
-            fyh: Timestamp.fromDate(new Date())
-        }
-        
-        const batch = writeBatch(db)
-        const ordersRef = collection(db, "orders")
-        const productosRef = collection(db, "productos")
-
-        const q = query(productosRef, where(documentId(), 'in', cart.map((el) => el.id)))
-        const productos = await getDocs(q)
-        console.log(productos)
-        const outOfStock = []
-
-        productos.docs.forEach((doc) => {
-            const item = cart.find((el) => el.id === doc.id)
-    
-            if (doc.data().stock >= item.count) {
-                batch.update(doc.ref, {
-                    stock: doc.data().stock - item.count
-                })
-            } else {
-                outOfStock.push(item)
-            }
-        })
-
-        if(outOfStock.length === 0){
-            addDoc(ordersRef, orden)
-                .then((doc) => {
-                    batch.commit()
-                    setOrderId(doc.id)
-                    vaciarCart()
-                })
-        } else {
-            alert("No hay stock suficiente para completar la compra del producto " + outOfStock.map((el) => el.nombre).join(", ")+ ". Por favor, revise su carrito.")
-        }
-    }
-
     const handleInputChange = (e) => {
         setValues({
             ...values,
@@ -68,22 +26,8 @@ export const Checkout = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        if(values.nombre.length < 5) {
-            alert('El nombre es demasiado corto')
-            return
-        }
-
-        if(values.email.length < 7) {
-            alert('El email es demasiado corto')
-            return
-        }
-
-        if(values.tel.length < 7) {
-            alert('El teléfono es demasiado corto')
-            return
-        }
-        generarOrden()
+        
+        validar(values) && generarOrden(values, cart, totalCart, setOrderId, vaciarCart)
     }
 
     if(orderId) {

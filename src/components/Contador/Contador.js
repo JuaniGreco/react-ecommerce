@@ -1,5 +1,5 @@
 import './Contador.css';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 
 export const Contador = () => {

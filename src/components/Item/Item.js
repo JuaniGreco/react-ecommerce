@@ -1,6 +1,5 @@
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './Item.css';
 
 
 export const Item = ( {id, nombre, precio, img, desc} ) => {
